@@ -1,0 +1,43 @@
+---
+
+# Package to be installed (exact version can be specified here)
+bacula_console_pkg: bacula-console
+
+# Path the to the Drector config file
+bacula_console_config_file_path: /etc/bacula/bconsole.conf
+
+
+# Default values of Director resource options
+bacula_console_config_director_options_name: bacula-dir
+bacula_console_config_director_options_address: localhost.localdomain
+bacula_console_config_director_options_port: 9101
+bacula_console_config_director_options_password: bacula
+
+# Default Director resource options
+bacula_console_config_director_options__default:
+  - Name = {{ bacula_console_config_director_options_name }}
+  - Address = {{ bacula_console_config_director_options_address }}
+  - DIR Port = {{ bacula_console_config_director_options_port }}
+  - Password = {{ bacula_console_config_director_options_password }}
+
+# Custom Director resource options
+bacula_console_config_director_options__custom: []
+
+# Final Director resource
+bacula_console_config_director:
+  - Director: "{{
+      bacula_console_config_director_options__default +
+      bacula_console_config_director_options__custom
+    }}"
+
+
+# Custom resources (e.g. Console, ConsoleFont)
+bacula_console_config_custom: []
+# Example of the Console resource
+#bacula_console_config_custom:
+#  - ConsoleFont:
+#    - Name = Default
+#    - Font = Monospace 10
+#  - Console:
+#    - Name = restricted-user
+#    - Password = UntrustedUser

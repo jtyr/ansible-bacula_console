@@ -1,0 +1,7 @@
+{{ ansible_managed | comment }}
+
+{{ bacula_console_config_director | encode_nginx }}
+
+{%- if bacula_console_config_custom | length > 0 -%}
+{{ "\n" }}{{ bacula_console_config_custom | encode_nginx }}
+{%- endif %}

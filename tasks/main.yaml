@@ -1,0 +1,22 @@
+---
+
+- name: Test distribution
+  assert:
+    that: >
+      ansible_os_family == "RedHat"
+  tags:
+    - bacula_console_assert
+
+- name: Install Bacula Console package
+  package:
+    name: "{{ bacula_console_pkg }}"
+    state: present
+  tags:
+    - bacula_console_pkg
+
+- name: Configure Bacula Console
+  template:
+    src: bconsole.conf.j2
+    dest: "{{ bacula_console_config_file_path }}"
+  tags:
+    - bacula_console_config
