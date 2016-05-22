@@ -1,7 +1,7 @@
 bacula_console
 ==============
 
-Ansible role which helps to intall and configure Bacula Console.
+Ansible role which helps to install and configure Bacula Console.
 
 The configuration of the role is done in such way that it should not be
 necessary to change the role for any kind of configuration. All can be
