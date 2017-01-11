@@ -10,7 +10,6 @@
 - name: Install Bacula Console package
   package:
     name: "{{ bacula_console_pkg }}"
-    state: present
   tags:
     - bacula_console_pkg
 
