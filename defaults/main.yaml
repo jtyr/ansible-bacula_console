@@ -11,7 +11,7 @@ bacula_console_config_file_path: /etc/bacula/bconsole.conf
 bacula_console_config_director_options_name: bacula-dir
 bacula_console_config_director_options_address: localhost.localdomain
 bacula_console_config_director_options_port: 9101
-bacula_console_config_director_options_password: bacula
+bacula_console_config_director_options_password: "{{ bacula_director_config_director_options_password | default('bacula') }}"
 
 # Default Director resource options
 bacula_console_config_director_options__default:
